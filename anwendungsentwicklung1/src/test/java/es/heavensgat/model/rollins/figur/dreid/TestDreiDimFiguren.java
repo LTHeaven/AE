@@ -1,9 +1,17 @@
 package es.heavensgat.model.rollins.figur;
 
+import es.heavensgat.model.rollins.figur.dreid.Figur3D;
+import es.heavensgat.model.rollins.figur.dreid.GeradesPrisma;
+import es.heavensgat.model.rollins.figur.dreid.Kegel;
+import es.heavensgat.model.rollins.figur.dreid.Kugel;
+import es.heavensgat.model.rollins.figur.zweid.Dreieck;
+import es.heavensgat.model.rollins.figur.zweid.Kreis;
+import es.heavensgat.model.rollins.figur.zweid.Rechteck;
+
 public class TestDreiDimFiguren {
 
 	public static void main(String[] args) {
-		Figur3D [] dreiDimFiguren = new Figur3D[5];
+		Figur3D[] dreiDimFiguren = new Figur3D[5];
 		
 		//Ein Quader
 		dreiDimFiguren[0] = new GeradesPrisma(10.0, new Rechteck(3,4));

@@ -1,6 +1,8 @@
 package es.heavensgat.model.rollins.figur;
 
-public class N_Eck {
+import es.heavensgat.model.bbender.figur.Figur2D;
+
+public class N_Eck extends Figur2D {
 
 	private double seitenLaenge;
 	private int n;
@@ -16,11 +18,12 @@ public class N_Eck {
 		}else 
 			throw new IllegalArgumentException();
 	}
+
 	@Override
 	public double umfang() {
-
 		return n*seitenLaenge;
 	}
+
 	public double getSeitenLaenge() {
 		return seitenLaenge;
 	}
@@ -33,6 +36,7 @@ public class N_Eck {
 	public double aussenKreisRadius(){
 		return this.seitenLaenge/( Math.sin(Math.PI/this.n));
 	}
+
 	public double flaeche(){
 		double seite = this.aussenKreisRadius();
 		Dreieck d = new Dreieck(seite, seite, seitenLaenge);

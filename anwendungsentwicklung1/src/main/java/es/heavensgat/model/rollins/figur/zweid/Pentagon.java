@@ -1,6 +1,6 @@
 package es.heavensgat.model.rollins.figur;
 
-public class Pentagon {
+public class Pentagon extends N_Eck{
 
 	public Pentagon(double seitenLaenge) {
 		super(seitenLaenge, 5);

@@ -1,7 +1,9 @@
 package es.heavensgat.model.rollins.figur;
 
 
-public class Dreieck {
+import es.heavensgat.model.bbender.figur.Figur2D;
+
+public class Dreieck extends Figur2D {
 	private double seiteA;
 	private double seiteB;
 	private double seiteC;
