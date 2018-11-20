@@ -1,6 +1,6 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.dreid;
 
-public class Kugel {
+public class Kugel extends Figur3D{
 	private double radius;
 	
 	public Kugel(double radius) {

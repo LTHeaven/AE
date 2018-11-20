@@ -1,5 +1,10 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.zweid;
 
+
+import es.heavensgat.model.rollins.figur.zweid.Dreieck;
+import es.heavensgat.model.rollins.figur.zweid.Kreis;
+import es.heavensgat.model.rollins.figur.zweid.Rechteck;
+import es.heavensgat.model.rollins.figur.zweid.ZusammengesetzteFigur;
 
 public class Maennchen extends ZusammengesetzteFigur {
 	
@@ -7,7 +12,7 @@ public class Maennchen extends ZusammengesetzteFigur {
 	 *  Zugriff auf einzelne K�rperteile zu erleichtern.
 	 *  Erstellung der Instanzen jedoch nur 1x  
 	 */
-	private Kreis kopf; 
+	private Kreis kopf;
 	private Dreieck koerper;
 	private Rechteck[] armBein = new Rechteck[4];
 

@@ -1,11 +1,10 @@
 package es.heavensgat.model.rollins.mitarbeiter;
 
-public class Manager {
+public class Manager extends Buerohengst{
 
 	private double bonus;
 
 	public Manager(Manager original) {
-
 		bonus = original.getBonus();
 	}
 

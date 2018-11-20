@@ -1,4 +1,4 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.zweid;
 
 import es.heavensgat.model.bbender.figur.Figur2D;
 

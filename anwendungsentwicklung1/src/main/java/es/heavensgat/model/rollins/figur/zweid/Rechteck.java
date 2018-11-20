@@ -1,6 +1,8 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.zweid;
 
-public class Rechteck {
+import es.heavensgat.model.bbender.figur.Figur2D;
+
+public class Rechteck extends Figur2D {
 	private double hoehe;
 	private double breite;
 	

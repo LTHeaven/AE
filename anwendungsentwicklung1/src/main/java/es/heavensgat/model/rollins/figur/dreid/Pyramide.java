@@ -1,8 +1,11 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.dreid;
 
-public abstract class Pyramide {
+import es.heavensgat.model.bbender.figur.Figur2D;
+
+public abstract class Pyramide extends Figur3D{
 
 	private double hoehe;
+	private Figur2D grund;
 
 	public double oberflaeche() {
 		return grund.flaeche() + mantel();

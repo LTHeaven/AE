@@ -1,6 +1,8 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.zweid;
 
-public class Stern {
+import es.heavensgat.model.bbender.figur.Figur2D;
+
+public class Stern extends ZusammengesetzteFigur{
 
 	public Stern(double zackenbreite, double zackenlaenge, int anzahlZacken){
 		Figur2D zentrum;

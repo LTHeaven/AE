@@ -1,6 +1,8 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.zweid;
 
-public class Kreis {
+import es.heavensgat.model.bbender.figur.Figur2D;
+
+public class Kreis extends Figur2D {
 	private double radius;
 	
 	public Kreis(double r)

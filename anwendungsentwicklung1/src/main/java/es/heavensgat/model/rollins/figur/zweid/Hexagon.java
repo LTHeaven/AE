@@ -1,4 +1,4 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.zweid;
 
 public class Hexagon extends N_Eck {
 

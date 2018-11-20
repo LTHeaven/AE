@@ -1,8 +1,10 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.zweid;
+
+import es.heavensgat.model.bbender.figur.Figur2D;
 
 import java.util.ArrayList;
 
-public abstract class ZusammengesetzteFigur {
+public abstract class ZusammengesetzteFigur extends Figur2D {
 
 	private ArrayList <Figur2D> teile = new ArrayList<Figur2D>();
 	

@@ -1,4 +1,4 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.dreid;
 
 import es.heavensgat.model.rollins.figur.dreid.Figur3D;
 import es.heavensgat.model.rollins.figur.dreid.GeradesPrisma;

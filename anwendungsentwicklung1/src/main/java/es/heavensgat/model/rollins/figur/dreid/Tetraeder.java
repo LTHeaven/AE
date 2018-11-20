@@ -1,7 +1,9 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.dreid;
+
+import es.heavensgat.model.rollins.figur.zweid.GleichseitigesDreieck;
 
 //Ein Tetraeder hat vier gleiche gleichseitige Dreiecke
-public class Tetraeder {
+public class Tetraeder extends Pyramide{
 
 	public Tetraeder(double kante) {
 		super(calcHoehe(kante), new GleichseitigesDreieck(kante));

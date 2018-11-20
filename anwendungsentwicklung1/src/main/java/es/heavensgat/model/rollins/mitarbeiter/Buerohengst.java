@@ -1,9 +1,13 @@
 package es.heavensgat.model.rollins.mitarbeiter;
 
-public class Buerohengst {
+public class Buerohengst extends Mitarbeiter{
 
 	private double festgehalt;
 
+	public Buerohengst(){
+		super();
+		setFestgehalt(0);
+	}
 	public Buerohengst(Buerohengst original) {
 		festgehalt = original.getFestgehalt();
 	}

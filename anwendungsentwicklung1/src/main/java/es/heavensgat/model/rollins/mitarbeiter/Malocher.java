@@ -1,6 +1,6 @@
 package es.heavensgat.model.rollins.mitarbeiter;
 
-public class Malocher {
+public class Malocher extends Mitarbeiter{
 
 	private double stundenSatz;
 	private int anzahlStunden;

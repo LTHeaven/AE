@@ -1,6 +1,8 @@
-package es.heavensgat.model.rollins.figur;
+package es.heavensgat.model.rollins.figur.dreid;
 
-public class Kegel  {
+import es.heavensgat.model.rollins.figur.zweid.Kreis;
+
+public class Kegel extends Pyramide{
 
 	public Kegel(double hoehe, Kreis grund) {
 		super(hoehe, grund);
