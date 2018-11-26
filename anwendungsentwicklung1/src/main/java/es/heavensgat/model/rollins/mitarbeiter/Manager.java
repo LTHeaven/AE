@@ -5,12 +5,13 @@ public class Manager extends Buerohengst{
 	private double bonus;
 
 	public Manager(Manager original) {
+		super(original.getID(), original.getName(), original.getFestgehalt());
 		bonus = original.getBonus();
 	}
 
 	public Manager(int id, String name, double festgehalt, double bonus) {
 		//Die Manager-IDs fangen alle mit 50 an
-
+		super(id, name, festgehalt);
 		setBonus(bonus);
 	}
 

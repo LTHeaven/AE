@@ -8,9 +8,6 @@ public abstract class Mitarbeiter
 	//wird ohne Inhalt deklariert
 	public abstract double einkommen();
 
-	public Mitarbeiter(){
-		this(0, "My name is noone.");
-	}
 
 	public Mitarbeiter(int id, String name){
 		setID(id);

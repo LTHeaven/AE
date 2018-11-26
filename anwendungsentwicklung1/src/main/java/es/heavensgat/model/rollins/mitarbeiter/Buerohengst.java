@@ -4,14 +4,12 @@ public class Buerohengst extends Mitarbeiter{
 
 	private double festgehalt;
 
-	public Buerohengst(){
-		super();
-		setFestgehalt(0);
-	}
 	public Buerohengst(Buerohengst original) {
+		super(original.getID(), original.getName());
 		festgehalt = original.getFestgehalt();
 	}
 	public Buerohengst(int id, String name, double festgehalt) {
+		super(id, name);
 		setFestgehalt(festgehalt);
 	}
 

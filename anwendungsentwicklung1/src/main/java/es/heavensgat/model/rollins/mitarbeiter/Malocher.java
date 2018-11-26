@@ -6,14 +6,12 @@ public class Malocher extends Mitarbeiter{
 	private int anzahlStunden;
 
 	public Malocher(Malocher original) {
+		super(original.getID(), original.getName());
 		setStundenSatz(original.getStundenSatz());
 		setAnzahlStunden(original.getAnzahlStunden());
 	}
 	public Malocher(int id, String name, double satz) {
-		
-		/*
-		 * Konstruktoraufruf super immer an erster Stelle
-		 */
+		super(id, name);
 		setStundenSatz(satz);
 		setAnzahlStunden(0);
 	}
