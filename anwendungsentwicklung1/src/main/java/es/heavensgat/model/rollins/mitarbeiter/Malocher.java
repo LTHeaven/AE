@@ -1,41 +1,98 @@
 package es.heavensgat.model.rollins.mitarbeiter;
 
-public class Malocher extends Mitarbeiter{
-
+/**
+ * class Malocher
+ */
+public class Malocher extends Mitarbeiter
+{
 	private double stundenSatz;
 	private int anzahlStunden;
 
-	public Malocher(Malocher original) {
+	/**
+	 * Malocher constructor
+	 *
+	 * @param original
+	 */
+	public Malocher(Malocher original)
+	{
 		super(original.getID(), original.getName());
 		setStundenSatz(original.getStundenSatz());
 		setAnzahlStunden(original.getAnzahlStunden());
 	}
-	public Malocher(int id, String name, double satz) {
+
+	/**
+	 * Malocher constructor
+	 *
+	 * @param id
+	 * @param name
+	 * @param satz
+	 */
+	public Malocher(int id, String name, double satz)
+	{
 		super(id, name);
 		setStundenSatz(satz);
 		setAnzahlStunden(0);
 	}
-	public double getStundenSatz() {
+
+	/**
+	 * @return double
+	 */
+	public double getStundenSatz()
+	{
 		return stundenSatz;
 	}
-	public void setStundenSatz(double stundenSatz) {
+
+	/**
+	 * @param double stundenSatz
+	 */
+	public void setStundenSatz(double stundenSatz)
+	{
 		if( stundenSatz > 0)
+		{
 			this.stundenSatz = stundenSatz;
+		}
 	}
-	public int getAnzahlStunden() {
+
+	/**
+	 * @return int
+	 */
+	public int getAnzahlStunden()
+	{
 		return anzahlStunden;
 	}
-	public void setAnzahlStunden(int anzahlStunden) {
-		if( anzahlStunden > 0)
-		this.anzahlStunden = anzahlStunden;
-	}
-	protected void setID(int id){
 
+	/**
+	 * @param int anzahlStunden
+	 */
+	public void setAnzahlStunden(int anzahlStunden)
+	{
+		if( anzahlStunden > 0)
+		{
+			this.anzahlStunden = anzahlStunden;
+		}
 	}
-	public double einkommen(){
+
+	/**
+	 * @param int id
+	 */
+	protected void setID(int id)
+	{
+		this.id = id;
+	}
+
+	/**
+	 * @return double
+	 */
+	public double einkommen()
+	{
 		return anzahlStunden *stundenSatz;
 	}
-	public String toString(){
+
+	/**
+	 * @return String
+	 */
+	public String toString()
+	{
 		return super.toString() +("Malocher hat Einkommen: " + einkommen());
 	}
 }
