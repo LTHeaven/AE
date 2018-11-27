@@ -50,6 +50,8 @@ public class Malocher extends Mitarbeiter
 		if( stundenSatz > 0)
 		{
 			this.stundenSatz = stundenSatz;
+		}else{
+			throw new IllegalArgumentException("Stundensatz ungueltig");
 		}
 	}
 
@@ -69,6 +71,8 @@ public class Malocher extends Mitarbeiter
 		if( anzahlStunden > 0)
 		{
 			this.anzahlStunden = anzahlStunden;
+		}else{
+			throw new IllegalArgumentException("Anzahlstunden ungueltig");
 		}
 	}
 

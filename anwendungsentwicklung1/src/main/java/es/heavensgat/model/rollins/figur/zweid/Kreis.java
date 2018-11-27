@@ -4,6 +4,7 @@ import es.heavensgat.model.bbender.figur.Figur2D;
 
 /**
  * class Kreis
+ * @author BBender, ARollins, PMaaß
  */
 public class Kreis extends Figur2D
 {
@@ -16,8 +17,7 @@ public class Kreis extends Figur2D
 	 */
 	public Kreis(double r)
 	{
-
-		radius = r;
+		setRadius(r);
 	}
 
 	/**
@@ -33,24 +33,14 @@ public class Kreis extends Figur2D
 	 *
 	 * @return
 	 */
-	public boolean setRadius(double radius)
+	public void setRadius(double radius)
 	{
-		boolean zulaessig = false;
-
 		if(radius > 0)
 		{
-			zulaessig = true;
 			this.radius = radius;
 		}else {
-			if (radius < 0)
-			{
-				this.radius = -radius;
-			} else {
-				this.radius = 1;
-			}
+			throw new IllegalArgumentException("Radius ist nicht zulaessig");
 		}
-
-		return zulaessig; 
 	}
 
 	/**

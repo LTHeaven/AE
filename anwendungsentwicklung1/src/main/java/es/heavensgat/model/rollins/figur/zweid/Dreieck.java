@@ -17,10 +17,7 @@ public class Dreieck extends Figur2D {
 			this.seiteC = c;
 		}
 		else{
-			System.out.println("Dreieck nicht konstruierbar. Standarddreieck erstellt.");
-			this.seiteA = 1;
-			this.seiteB = 1;
-			this.seiteC = 1;
+			throw new IllegalArgumentException("Dreieck ist nicht konstruierbar");
 		}
 	}
 	//Kopierkonstruktor
@@ -37,7 +34,7 @@ public class Dreieck extends Figur2D {
 		if( konstruierbar(seiteA, this.seiteB, this.seiteC))
 			this.seiteA = seiteA;
 		else
-			System.out.println("Seiten�nderung nicht m�glich");
+			throw new IllegalArgumentException("Seitenaenderung nicht moeglich");
 	}
 	public double getSeiteB() {
 		return seiteB;
@@ -47,7 +44,7 @@ public class Dreieck extends Figur2D {
 		if( konstruierbar(this.seiteA, seiteB, this.seiteC))
 			this.seiteB = seiteB;
 		else
-			System.out.println("Seiten�nderung nicht m�glich");
+			throw new IllegalArgumentException("Seitenaenderung nicht moeglich");
 	}
 	public double getSeiteC() {
 		return seiteC;
@@ -57,7 +54,7 @@ public class Dreieck extends Figur2D {
 		if( konstruierbar(this.seiteA, this.seiteB, seiteC))
 			this.seiteC = seiteC;
 		else
-			System.out.println("Seiten�nderung nicht m�glich");
+			throw new IllegalArgumentException("Seitenaenderung nicht moeglich");
 	}
 	public double getHoehe(){
 		return this.flaeche()*2/this.seiteB;

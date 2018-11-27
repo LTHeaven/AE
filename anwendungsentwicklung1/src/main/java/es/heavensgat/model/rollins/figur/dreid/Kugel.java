@@ -5,6 +5,9 @@ public class Kugel extends Figur3D{
 	
 	public Kugel(double radius) {
 		super();
+		if(radius < 0){
+			throw new IllegalArgumentException("Ungültiger radius");
+		}
 		this.radius = radius;
 	}
 	public double getRadius() {

@@ -11,7 +11,7 @@ public class Manager extends Buerohengst{
 
 	public Manager(int id, String name, double festgehalt, double bonus) {
 		//Die Manager-IDs fangen alle mit 50 an
-		super(id, name, festgehalt);
+		super(5000+id, name, festgehalt);
 		setBonus(bonus);
 	}
 
@@ -25,7 +25,7 @@ public class Manager extends Buerohengst{
 		if(bonus > 0 && bonus <= 2)
 			this.bonus = bonus;
 		else
-			this.bonus = 0;
+			throw new IllegalArgumentException("Bonus nicht zugelassen");
 	}
 	protected void setID(int id){
 

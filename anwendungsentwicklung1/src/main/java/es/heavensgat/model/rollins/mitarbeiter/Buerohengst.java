@@ -49,7 +49,7 @@ public class Buerohengst extends Mitarbeiter
 	}
 
 	/**
-	 * @param int festgehalt
+	 * @param festgehalt
 	 */
 	public void setFestgehalt(double festgehalt)
 	{
@@ -57,13 +57,13 @@ public class Buerohengst extends Mitarbeiter
 		if(festgehalt > 300)
 		{
 			this.festgehalt = festgehalt;
-		} else{
-			this.festgehalt = 300;
+		}else{
+			throw new IllegalArgumentException("Festgehalt ungueltig");
 		}
 	}
 
 	/**
-	 * @param int id
+	 * @param id
 	 */
 	protected void setID(int id)
 	{
