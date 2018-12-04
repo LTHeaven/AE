@@ -1,6 +1,8 @@
 package es.heavensgat.model.rollins.mitarbeiter;
 
-public abstract class Mitarbeiter {
+import java.util.Collections;
+
+public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
     protected int id;
     private String name;
 
@@ -66,4 +68,8 @@ public abstract class Mitarbeiter {
         return ("ID: " + id + "\nName: " + name);
     }
 
+    @Override
+    public int compareTo(Mitarbeiter m){
+        return this.name.compareTo(m.name);
+    }
 }

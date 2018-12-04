@@ -68,7 +68,7 @@ public class Malocher extends Mitarbeiter
 	 */
 	public void setAnzahlStunden(int anzahlStunden)
 	{
-		if( anzahlStunden > 0)
+		if( anzahlStunden >= 0)
 		{
 			this.anzahlStunden = anzahlStunden;
 		}else{
