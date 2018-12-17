@@ -1,11 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 
 public class GameOfLife {
-    private int horizontalCells = 50;
-    private int verticalCells = 50;
-    private int cellPixelSize = 30;
+    private int horizontalCells = 100;
+    private int verticalCells = 100;
+    private int cellPixelSize = 10;
     private boolean[][] gameState;
     private boolean[][] nextGameState;
     private JFrame frame;
@@ -35,27 +36,17 @@ public class GameOfLife {
         frame.add(BorderLayout.WEST, canvasGameBoard);
         JButton buttonStart = new JButton("Start");
         buttonStart.setSize(500,200);
-        buttonStart.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (paused){
-                    animationThread = new AnimationThread();
-                    paused = false;
-                    animationThread.start();
-                }
+        buttonStart.addActionListener(e -> {
+            if (paused){
+                animationThread = new AnimationThread();
+                paused = false;
+                animationThread.start();
             }
         });
         JButton buttonPause = new JButton("Pause");
-        buttonPause.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                paused = true;
-            }
-        });
+        buttonPause.addActionListener(e -> paused = true);
         JButton buttonClear = new JButton("Clear");
-        buttonClear.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                clear();
-            }
-        });
+        buttonClear.addActionListener(e -> clear());
         textFieldTimerDelay = new JTextField();
         textFieldTimerDelay.setText("50");
         textAreaImportString = new JTextArea();
@@ -86,7 +77,7 @@ public class GameOfLife {
         buttonPanel.add(textAreaImportString);
         GridLayout gridLayout = new GridLayout(10,1);
         buttonPanel.setLayout(gridLayout);
-        buttonPanel.setPreferredSize(new Dimension(500,600));
+        buttonPanel.setPreferredSize(new Dimension(200,600));
         frame.add(BorderLayout.EAST, buttonPanel);
         frame.pack();
         paused = true;
@@ -100,17 +91,39 @@ public class GameOfLife {
     private void parseImportString(String text) {
         clear();
         String metadata = "";
-        String figure = "";
+        String patternString = "";
         for (String currentLine : text.split("\n")){
-            System.out.println(currentLine);
             if (!(currentLine.charAt(0) == '#')){
                 if (metadata.equals("")){
                     metadata = currentLine;
+                }else{
+                    patternString += currentLine;
                 }
-                figure += currentLine;
             }
         }
-        System.out.println("metadata: " + metadata + "\nfigure: " + figure);
+        int x = Integer.parseInt(metadata.split(", ")[0].split(" = ")[1]);
+        int y = Integer.parseInt(metadata.split(", ")[1].split(" = ")[1]);
+        String[] rows;
+        rows = patternString.replace("!", "").split("\\$");
+        int currentY = (verticalCells - y)/2;
+        int startX = (horizontalCells - x)/2;
+        for (String row : rows){
+            String[] columns = row.split("(?<=[bo])");
+            System.out.println(Arrays.deepToString(columns));
+            int currentX = startX;
+            for(String column : columns){
+                String amountString = column.substring(0, column.length() - 1);
+                int amount = amountString.equals("") ? 1 : Integer.parseInt(amountString);
+                for (int i = 0; i<amount; i++){
+                    if (column.charAt(column.length()-1) == 'o'){
+                        gameState[currentX + i][currentY] = true;
+                    }
+                }
+                currentX += amount;
+            }
+            currentY++;
+        }
+        canvasGameBoard.repaint();
     }
 
     private void generateNextGameState(){
