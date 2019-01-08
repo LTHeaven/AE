@@ -4,8 +4,8 @@ import java.awt.event.*;
 import java.util.Arrays;
 
 public class GameOfLife {
-    private int horizontalCells = 100;
-    private int verticalCells = 100;
+    private int horizontalCells = 90;
+    private int verticalCells = 90;
     private int cellPixelSize = 10;
     private boolean[][] gameState;
     private boolean[][] nextGameState;
@@ -14,6 +14,8 @@ public class GameOfLife {
     private Thread animationThread;
     private boolean paused;
     private JTextField textFieldTimerDelay;
+    private JTextField textFieldWidth;
+    private JTextField textFieldHeight;
     private JTextArea textAreaImportString;
 
     public GameOfLife(){
@@ -36,17 +38,21 @@ public class GameOfLife {
         frame.add(BorderLayout.WEST, canvasGameBoard);
         JButton buttonStart = new JButton("Start");
         buttonStart.setSize(500,200);
-        buttonStart.addActionListener(e -> {
-            if (paused){
-                animationThread = new AnimationThread();
-                paused = false;
-                animationThread.start();
-            }
-        });
         JButton buttonPause = new JButton("Pause");
-        buttonPause.addActionListener(e -> paused = true);
+        buttonPause.addActionListener(e -> {
+            paused = true;
+            textFieldTimerDelay.setEnabled(paused);
+            textFieldHeight.setEnabled(paused);
+            textFieldWidth.setEnabled(paused);
+        });
         JButton buttonClear = new JButton("Clear");
         buttonClear.addActionListener(e -> clear());
+        textFieldWidth = new JTextField();
+        textFieldWidth.setText(""+horizontalCells);
+        textFieldWidth.addKeyListener(new UpdateFieldKeyListener());
+        textFieldHeight = new JTextField();
+        textFieldHeight.setText("" + verticalCells);
+        textFieldHeight.addKeyListener(new UpdateFieldKeyListener());
         textFieldTimerDelay = new JTextField();
         textFieldTimerDelay.setText("50");
         textAreaImportString = new JTextArea();
@@ -75,12 +81,24 @@ public class GameOfLife {
         buttonPanel.add(buttonClear);
         buttonPanel.add(textFieldTimerDelay);
         buttonPanel.add(textAreaImportString);
+        buttonPanel.add(textFieldWidth);
+        buttonPanel.add(textFieldHeight);
         GridLayout gridLayout = new GridLayout(10,1);
         buttonPanel.setLayout(gridLayout);
         buttonPanel.setPreferredSize(new Dimension(200,600));
         frame.add(BorderLayout.EAST, buttonPanel);
         frame.pack();
         paused = true;
+        buttonStart.addActionListener(e -> {
+            if (paused){
+                animationThread = new AnimationThread();
+                paused = false;
+                animationThread.start();
+            }
+            textFieldTimerDelay.setEnabled(paused);
+            textFieldWidth.setEnabled(paused);
+            textFieldHeight.setEnabled(paused);
+        });
     }
 
     private void clear() {
@@ -253,6 +271,29 @@ public class GameOfLife {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    class UpdateFieldKeyListener implements KeyListener{
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            if (e.getKeyChar() == '\n'){
+                horizontalCells = Integer.parseInt(textFieldWidth.getText());
+                verticalCells = Integer.parseInt(textFieldHeight.getText());
+                canvasGameBoard.setSize(horizontalCells*cellPixelSize, verticalCells*cellPixelSize);
+                clear();
+            }
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+
         }
     }
 }
