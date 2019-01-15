@@ -1,7 +1,5 @@
-package es.heavensgat.model.aufgaben.threads.aufgabe3quicksort;
+package es.heavensgat.model.aufgaben.threads.aufgabe3quicksort.original;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.io.*;
 public class J22_QuicksortZurBearbeitung {
@@ -20,10 +18,12 @@ public class J22_QuicksortZurBearbeitung {
     System.out.println("QuickSort");
     feldFuellen(zahlenFeld);
     ausgabeFeld(zahlenFeld);
+
     long first = System.nanoTime();
     quicksort(zahlenFeld, 0, zahlenFeld.length-1);
     System.out.println("time needed: " + (System.nanoTime() - first));
     ausgabeFeld(zahlenFeld);
+    
   }
   public static void feldFuellen(int[]zahlenFeld){
     Random zahlenMaschine = new Random();
@@ -70,28 +70,13 @@ public class J22_QuicksortZurBearbeitung {
     int newRechts = i-1, newLinks = i+1;
     
 //    System.out.println("Aufruf linke Teilfolge: "+"links: "+ links + " newRechts: " + newRechts);
-
-    List<Thread> threads = new ArrayList<>();
+    
     if( links < newRechts){
-      threads.add(new Thread(() -> {
-        quicksort ( zahlenFeld, links, newRechts);
-      }));
+      quicksort ( zahlenFeld, links, newRechts);
     }
 //    System.out.println("Aufruf rechte Teilfolge: "+"newLinks: " +newLinks+ " rechts: " + rechts);
     if( newLinks < rechts){
-      threads.add(new Thread(() -> {
-        quicksort( zahlenFeld, newLinks, rechts);
-      }));
-    }
-    for (Thread thread : threads){
-      thread.start();
-    }
-    for (Thread thread : threads){
-      try {
-        thread.join();
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
+      quicksort( zahlenFeld, newLinks, rechts);
     }
 //    ausgabeFeld(zahlenFeld);
   }
